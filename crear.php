@@ -34,7 +34,7 @@
         $consulta = "insert into `usuarios` (`id_usuario`, `usuario`, `password`) values ('', '$usuario', '$contra')";
         $resultado = mysqli_query($conexion, $consulta);
         if($resultado != false){
-            echo "Ingreso Exitoso";
+            echo "Ingreso Exitoso para ``$usuario``";
         }else{
             echo "Algo paso en la consulta";
         }
