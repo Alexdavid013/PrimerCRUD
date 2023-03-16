@@ -21,12 +21,12 @@
         if($cont==0){
         echo "<h2> Resultados para ``$busqueda``</h2><br>";
         }
-        echo "<form action='actualiza.php' method='get'>";
+        echo "<form action='actualiza.php' method='post'>";
         echo "<input type='text' name='id_user' value='$fila[id_usuario]' readonly>  <br>";
         echo "<input type='text' name='usuario' value='$fila[usuario]'>  <br>";
         echo "<input type='text' name='contra' value='$fila[password]'> <br>";
-        echo "<input type='submit' class='btn btn-primary' value='actualizar'>";
-        echo "<input type='submit' class='btn btn-secondary' value='eliminar'> <br>";
+        echo "<input type='submit' name='actualizar' class='btn btn-primary' value='actualizar'>";
+        echo "<input type='submit' name='eliminar' class='btn btn-secondary' value='eliminar'> <br>";
         echo "</form> <br>";
         
         $cont++;

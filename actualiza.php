@@ -8,22 +8,31 @@
 </head>
 <body>
 <?php
-    $cod = $_GET["id_user"];
-    $user = $_GET["usuario"];
-    $contra = $_GET["contra"];
+    $cod = $_POST["id_user"];
+    $user = $_POST["usuario"];
+    $contra = $_POST["contra"];
 
     require("conexion.php");
 
+    if(isset($_POST["actualizar"])){
         $consulta = "update usuarios set id_usuario = $cod, usuario = '$user', password = '$contra' where id_usuario = $cod";
         $resultado = mysqli_query($conexion, $consulta);
         if($resultado != false){
-            echo "Actualizacion Exitosa <Sbr>";
+            echo "Actualizacion Exitosa <br>";
 
             echo "<br> $cod <br> $user <br> $contra<br>";
         }else{
             echo "Algo paso en la consulta";
         }
-
+    }else if(isset($_POST["eliminar"])){
+        $consulta = "delete from usuarios where id_usuario = $cod";
+        $resultado = mysqli_query($conexion, $consulta);
+        if($resultado != false){
+            echo "Eliminacion Exitosa <br>";
+        }else{
+            echo "Algo paso en la consulta";
+        }
+    }
         mysqli_close($conexion);
     ?>
 </body>

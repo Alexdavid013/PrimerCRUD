@@ -8,7 +8,15 @@
     <title>Usuarios</title>
 </head>
 <body>
+    <?php
+    session_start();
+
+    if(!isset($_SESSION["usuario"])){
+        header("Location:login.php");
+    }
+    ?>
     <form action="result.php" method="get">
+        <?php echo "Hola  ". $_SESSION["usuario"] . "<br><br>"?>
         <label>Buscador: <input type="text" placeholder="Buscar" name="buscar" class="form-control"></label>
         <input type="submit" name="enviando" class="btn btn-primary" value="ok!">
     </form>
